@@ -44,33 +44,34 @@ A research implementation and hardware benchmark comparing **Projected Quantum K
 D:.
 │   
 ├───plot_results
-│       plot.py                       # To plot the comparision graphs and heat maps.
-│       
+│       plot.py                             # To plot the comparision graphs and heat maps.
+│       hardware_gram_comparision.png       # Heat map plot between the 3 ways, Ideal Baseline (Standard Kernel) vs Simulated NISQ Noise (Projected Kernel) vs Physical IBM QPU (Projected Kernel)
+|       kernel_concentration_benchmark.png  # Plot between the off-Diagonal Kernel Variance vs Qubit Count (4 to 16)
 ├───run_and_comparisions
-│       benchmark_concentration.py    # Qubit Scaling Experiment (4 to 16) to see the difference between our proposed kernel vs the standard kernel
-│       comparision_3_way.py          # Global Fedility vs Aer Simulation with Noise vs Physical QPU
-│       Test_hardware.py              # To check the token and connection to the IBM QPU is working or not (only 20 sec runtime)
-│       token_saving.py               # To save the token in your local qiskit environment
+│       benchmark_concentration.py          # Qubit Scaling Experiment (4 to 16) to see the difference between our proposed kernel vs the standard kernel
+│       comparision_3_way.py                # Global Fedility vs Aer Simulation with Noise vs Physical QPU
+│       Test_hardware.py                    # To check the token and connection to the IBM QPU is working or not (only 20 sec runtime)
+│       token_saving.py                     # To save the token in your local qiskit environment
 │       
 ├───src
     ├───circuits
-    │       feature_map.py            # Parameterized entangling circuits and 1-qubit Pauli observables   
+    │       feature_map.py                  # Parameterized entangling circuits and 1-qubit Pauli observables   
     │           
     ├───data
-    │      data_loader.py             # Dynamic multi-qubit PCA data preperation
+    │      data_loader.py                   # Dynamic multi-qubit PCA data preperation
     │           
     ├───hardware
-    │       ibm_executor.py           # Authenticated Qiskit Runtime V2 hardware pipeline
+    │       ibm_executor.py                 # Authenticated Qiskit Runtime V2 hardware pipeline
     │           
     ├───kernels
-    │       fidelity_kernel.py        # Baseline / Standard Global state fedility overlap
-    │       projected_kernel.py       # Local expectation Extraction (Estimator V2) + RBF metric
+    │       fidelity_kernel.py              # Baseline / Standard Global state fedility overlap
+    │       projected_kernel.py             # Local expectation Extraction (Estimator V2) + RBF metric
     │           
     ├───models
-    │       svm_classifier.py         # Scikit-learn precomputed SVM integration
+    │       svm_classifier.py               # Scikit-learn precomputed SVM integration
     │           
     └───noise
-           noise_models.py            # Depolarizing and readout noise configuration
+           noise_models.py                  # Depolarizing and readout noise configuration
 ```
 
 ---
@@ -100,3 +101,10 @@ python run_and_comparisions/Test_hardware.py
 # After verification run the comaprision file to see the difference between all the 3 types.
 python run_and_comparisions/comparision_3_way.py
 ```
+
+---
+
+## Results and Visualizations
+
+![Comparisions Heat Map](plot_results/hardware_gram_comparision.png)
+![Benchmark Concentraion (4 to 16 qubits)](plot_results/kernel_concentration_benchmark.png)
