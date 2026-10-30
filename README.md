@@ -45,7 +45,7 @@ D:.
 │   
 ├───plot_results
 │       plot.py                             # To plot the comparision graphs and heat maps.
-│       hardware_gram_comparision.png       # Heat map plot between the 3 ways, Ideal Baseline (Standard Kernel) vs Simulated NISQ Noise (Projected Kernel) vs Physical IBM QPU (Projected Kernel)
+│       hardware_gram_comparison.png       # Heat map plot between the 3 ways, Ideal Baseline (Standard Kernel) vs Simulated NISQ Noise (Projected Kernel) vs Physical IBM QPU (Projected Kernel)
 |       kernel_concentration_benchmark.png  # Plot between the off-Diagonal Kernel Variance vs Qubit Count (4 to 16)
 ├───run_and_comparisions
 │       benchmark_concentration.py          # Qubit Scaling Experiment (4 to 16) to see the difference between our proposed kernel vs the standard kernel
@@ -106,5 +106,8 @@ python run_and_comparisions/comparision_3_way.py
 
 ## Results and Visualizations
 
-![Comparisions Heat Map](plot_results/hardware_gram_comparision.png)
+### Heat Map Comparison
+![Comparisions Heat Map](plot_results/hardware_gram_comparison.png)
+
+### Quantum Kernel Concentration (Global / Standard Kernel vs Projected Kernel)
 ![Benchmark Concentraion (4 to 16 qubits)](plot_results/kernel_concentration_benchmark.png)
